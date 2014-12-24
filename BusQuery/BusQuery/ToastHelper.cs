@@ -66,7 +66,7 @@ namespace BusQuery
             var textFields = toastXml.GetElementsByTagName("text");
             textFields[0].AppendChild(toastXml.CreateTextNode(title));
             textFields[1].AppendChild(toastXml.CreateTextNode(des));
-            String imagePath = "file:///" + System.IO.Path.GetFullPath("me.png");
+            String imagePath = "file:///" + System.IO.Path.GetFullPath("tosat.png");
             XmlNodeList imageElements = toastXml.GetElementsByTagName("image");
             imageElements[0].Attributes.GetNamedItem("src").NodeValue = imagePath;
             ToastNotification toast = new ToastNotification(toastXml);

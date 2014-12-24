@@ -84,6 +84,7 @@ namespace BusQuery
                     {
                         MessageHelper.Current.AppendBarMessage("搜索失败 请重试", true);
                     }
+                    tabControl.SelectedIndex = 0;
                 }));
             });
         }

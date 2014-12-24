@@ -193,7 +193,7 @@
     <EmbeddedResource Include="sounds\Windows Notify System Generic.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="me.png">
+    <None Include="tosat.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
