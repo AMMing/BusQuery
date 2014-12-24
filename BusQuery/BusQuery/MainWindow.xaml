@@ -1,0 +1,74 @@
+﻿<metro:MetroWindow  x:Class="BusQuery.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+        xmlns:metro="urn:yewsoft-metrowpf"
+        Title="公交查询" Height="600" Width="900" 
+	    WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip"
+	    CaptionBackground="#22ffffff" Icon="images/app.ico">
+
+    <metro:MetroWindow.CaptionContent>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 6 10 0">
+            <!--<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="粗略统计可能会跟实际有点误差" VerticalAlignment="Top" Margin="0,0,20,0" Grid.ColumnSpan="3" Foreground="#FFFF8D8D"/>-->
+            <TextBlock x:Name="txt_ver" Text="Version 1.6.0.0" Foreground="{DynamicResource MetroForeground3}"
+					VerticalAlignment="Center" />
+        </StackPanel>
+    </metro:MetroWindow.CaptionContent>
+    <Grid>
+        <Grid.Resources>
+            <metro:AccentColors x:Key="AccentColors" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <TabControl x:Name="tabControl" Margin="5 45 5 5" Style="{StaticResource MetroTabControl}"
+				Background="{DynamicResource MetroBackground}">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource MetroTopTitle}" Text="搜索结果" />
+                </TabItem.Header>
+                <metro:MetroContentControl>
+                    <Grid>
+                        <Grid.Resources>
+                            <metro:AccentColors x:Key="AccentColors" />
+                        </Grid.Resources>
+                        <Border Grid.Column="1" BorderThickness="2" BorderBrush="{DynamicResource MetroForeground3}" Margin="2,0,2,2">
+                            <Grid>
+                                <ListBox x:Name="listbox" Margin="0" ItemTemplate="{StaticResource BusItem}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </metro:MetroContentControl>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource MetroTopTitle}" Text="收藏" />
+                </TabItem.Header>
+                <metro:MetroContentControl>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                    </Grid>
+                </metro:MetroContentControl>
+            </TabItem>
+
+        </TabControl>
+        <StackPanel Margin="0 55 8 0" Orientation="Horizontal" HorizontalAlignment="Right"
+				VerticalAlignment="Top">
+            <TextBlock Text="输入线路" TextAlignment="Center" Margin="0,0,5,0" ></TextBlock>
+            <TextBox x:Name="txt_kw" Width="200" Height="32" TabIndex="0" />
+            <Button x:Name="btn_search" Height="32" VerticalAlignment="Bottom" Margin="0">搜索</Button>
+        </StackPanel>
+        <StatusBar Grid.Row="1">
+            <TextBlock x:Name="txt_Status" Text="请输入公交路线然后搜索."></TextBlock>
+        </StatusBar>
+    </Grid>
+
+
+</metro:MetroWindow>

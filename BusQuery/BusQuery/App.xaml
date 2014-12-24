@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application x:Class="BusQuery.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    	<ResourceDictionary>
+    		<ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionary1.xaml" />
+                <ResourceDictionary Source="/MetroWPF;component/themes/ColorDark.xaml" />
+                <!--<ResourceDictionary Source="/MetroWPF;component/themes/AllControlStyles.xaml" />-->
+                <ResourceDictionary Source="/MetroWPF;component/Themes/FontsAndSize.xaml" />
+                <ResourceDictionary Source="/MetroWPF;component/Themes/EditorControlStyles.xaml" />
+                <ResourceDictionary Source="/MetroWPF;component/Themes/MenuStyles.xaml" />
+                <ResourceDictionary Source="/MetroWPF;component/Themes/TabStyles.xaml" />
+                <ResourceDictionary Source="/MetroWPF;component/Themes/ScrollStyles.xaml" />
+                <ResourceDictionary Source="/MetroWPF;component/Themes/ButtonStyles.xaml" />
+                <ResourceDictionary Source="/MetroWPF;component/Themes/ListStyles.xaml" />
+                <ResourceDictionary Source="/MetroWPF;component/Themes/ProgressStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+    	</ResourceDictionary>
+         
+    </Application.Resources>
+</Application>
