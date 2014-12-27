@@ -31,8 +31,18 @@ namespace BusQuery
 
             Load();
         }
+        public string Key { get; private set; }
 
-        public Core.BusLineStationVer2 BusLineStation { get; set; }
+        private Core.BusLineStationVer2 _busLineStation;
+
+        public Core.BusLineStationVer2 BusLineStation
+        {
+            get { return _busLineStation; }
+            set
+            {
+                _busLineStation = value;
+            }
+        }
 
 
         private void Load()

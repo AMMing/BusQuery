@@ -17,7 +17,7 @@
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="13.333" Foreground="#FFF3BF33">
                     <Run Text=" " />
                     <Run Text="{Binding From}" />
-                    <Run Text=" => " />
+                    <Run Text="→" />
                     <Run Text="{Binding To}" />
                     <Run Text="" />
                 </TextBlock>
@@ -32,5 +32,71 @@
     <DataTemplate x:Key="DataTemplate1">
         <Image Source="{Binding Uri}" Width="28" Height="28" Stretch="Fill" />
     </DataTemplate>
+    <Style x:Key="NullButtonStyle" TargetType="{x:Type Button}">
+        <Style.BasedOn>
+            <Style TargetType="{x:Type ButtonBase}">
+                <Setter Property="Background" Value="{DynamicResource MetroBackground}"/>
+                <Setter Property="BorderThickness" Value="{DynamicResource ControlBorderThickness}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource MetroForeground3}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MetroForeground2}"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ButtonBase}">
+                            <Grid>
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <ContentPresenter.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource MetroBackground2}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource MetroForeground}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource MetroForeground}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource MetroForeground}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource MetroBackground}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource MetroForeground}"/>
+                                    <Setter Property="RenderTransform" TargetName="contentPresenter">
+                                        <Setter.Value>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform/>
+                                                <TranslateTransform X="1" Y="1"/>
+                                            </TransformGroup>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="{DynamicResource MetroForeground4}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource MetroForeground4}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style.BasedOn>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsDefault" Value="True"/>
+                    <Condition Property="IsEnabled" Value="True"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource MetroAccent}"/>
+                <Setter Property="Foreground" Value="{DynamicResource AccentForeground}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
     <!-- 应该在此定义资源字典条目。-->
 </ResourceDictionary>
