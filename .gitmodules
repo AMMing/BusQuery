@@ -1,0 +1,3 @@
+[submodule "AMing.Helper"]
+	path = AMing.Helper
+	url = https://github.com/AMMing/AMing.Helper.git

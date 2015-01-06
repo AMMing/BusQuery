@@ -31,6 +31,8 @@ namespace BusQuery
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            this.txt_ver.Text = string.Format("Version {0}", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+
             this.btn_search.Click += btn_search_Click;
             this.listbox.MouseDoubleClick += listbox_MouseDoubleClick;
             this.txt_kw.KeyUp += txt_kw_KeyUp;
